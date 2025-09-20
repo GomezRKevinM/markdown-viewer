@@ -3,12 +3,36 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "marked": "12.0.0"
   },
   "devDependencies": {
-    "electron": "32.0.0"
+    "electron": "32.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.GomezRKevinM.markdownviewer",
+    "productName": "Markdown Viewer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "markdown-light.ico"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "GomezRKevinM",
+        "repo": "markdown-viewer"
+      }
+    ]
   }
 }
